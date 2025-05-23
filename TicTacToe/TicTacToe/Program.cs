@@ -23,9 +23,12 @@ void DrawField(int[] playersMove)
     }
     Console.WriteLine(fieldSide + "\n");
 }
+
+const int moveX = 10;
+const int moveO = 11;
 void IsEmptyCell(int cell)
 {
-    if (cell == 10) //ход X
+    if (cell == moveX)
     {
         Console.ForegroundColor = ConsoleColor.Black;
         Console.BackgroundColor = ConsoleColor.Blue;
@@ -33,7 +36,7 @@ void IsEmptyCell(int cell)
         Console.ResetColor();
     }
 
-    else if (cell == 11) //ход O
+    else if (cell == moveO)
     {
         Console.ForegroundColor = ConsoleColor.Black;
         Console.BackgroundColor = ConsoleColor.Red;
@@ -140,18 +143,18 @@ void StartGame(int[] playersMoves)
         Console.Write("Ход " + char.ToUpper(turn) + ": ");
         int answer = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine();
-        if (answer >= 1 && answer <= 9 && (playersMoves[answer - 1] != 10) && (playersMoves[answer - 1] != 11))
+        if (answer >= 1 && answer <= 9 && (playersMoves[answer - 1] != moveX) && (playersMoves[answer - 1] != moveO))
         {
             if (turn == 'X' || turn == 'x')
             {
-                playersMoves[answer - 1] = 10;
                 turn = 'O';
+                playersMoves[answer - 1] = moveX;
                 count++;
             }
             else if (turn == 'O' || turn == 'o')
             {
-                playersMoves[answer - 1] = 11;
                 turn = 'X';
+                playersMoves[answer - 1] = moveO;
                 count++;
             }
             if (count >= 5)
