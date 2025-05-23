@@ -1,4 +1,6 @@
-﻿//отрисовка игрового поля------------------------------------------------------------------------------------
+/// <summary>
+/// Нарисовать текущее игровое поле
+/// </summary>
 void DrawField(int[] playersMove)
 {
     Console.WriteLine("-------------");
@@ -10,7 +12,6 @@ void DrawField(int[] playersMove)
     Console.Write(" | "); IsEmptyCell(playersMove[8]); Console.WriteLine(" |");
     Console.WriteLine("-------------\n");
 }
-//подготовка ячейки для отрисовки-----------------------------------------------------------------------------
 void IsEmptyCell(int cell)
 {
     if (cell == 10) //ход X
@@ -35,8 +36,11 @@ void IsEmptyCell(int cell)
     }
 }
 
-//проверка на выигрыш-------------------------------------------------------------------------------------------
-bool IsWinner(int[] playersMove)
+/// <summary>
+/// Проверка на наличие победителя
+/// (победные комбинации)
+/// </summary>
+bool IsWinner(int[] playersMoves)
 {
     if (playersMove[0] == playersMove[1])
     {
@@ -98,6 +102,9 @@ bool IsWinner(int[] playersMove)
     return false;
 }
 
+/// <summary>
+/// Функция воспроизведения одного тура игры
+/// </summary>
 void StartGame(int[] playersMoves)
 {
     
