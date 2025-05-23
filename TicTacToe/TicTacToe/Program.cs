@@ -56,58 +56,58 @@ void IsEmptyCell(int cell)
 /// </summary>
 bool IsWinner(int[] playersMoves)
 {
-    if (playersMove[0] == playersMove[1])
+    if (playersMoves[0] == playersMoves[1])
     {
-        if (playersMove[0] == playersMove[2])
+        if (playersMoves[0] == playersMoves[2])
         {
             return true;
         }
     }
-    else if (playersMove[0] == playersMove[3])
+    else if (playersMoves[0] == playersMoves[3])
     {
-        if (playersMove[0] == playersMove[6])
+        if (playersMoves[0] == playersMoves[6])
         {
             return true;
         }
     }
-    else if (playersMove[0] == playersMove[4])
+    else if (playersMoves[0] == playersMoves[4])
     {
-        if (playersMove[0] == playersMove[8])
+        if (playersMoves[0] == playersMoves[8])
         {
             return true;
         }
     }
-    else if (playersMove[3] == playersMove[4])
+    else if (playersMoves[3] == playersMoves[4])
     {
-        if (playersMove[3] == playersMove[5])
+        if (playersMoves[3] == playersMoves[5])
         {
             return true;
         }
     }
-    else if (playersMove[6] == playersMove[7])
+    else if (playersMoves[6] == playersMoves[7])
     {
-        if (playersMove[6] == playersMove[8])
+        if (playersMoves[6] == playersMoves[8])
         {
             return true;
         }
     }
-    else if (playersMove[1] == playersMove[4])
+    else if (playersMoves[1] == playersMoves[4])
     {
-        if (playersMove[1] == playersMove[7])
+        if (playersMoves[1] == playersMoves[7])
         {
             return true;
         }
     }
-    else if (playersMove[2] == playersMove[5])
+    else if (playersMoves[2] == playersMoves[5])
     {
-        if (playersMove[2] == playersMove[8])
+        if (playersMoves[2] == playersMoves[8])
         {
             return true;
         }
     }
-    else if (playersMove[2] == playersMove[4])
+    else if (playersMoves[2] == playersMoves[4])
     {
-        if (playersMove[2] == playersMove[6])
+        if (playersMoves[2] == playersMoves[6])
         {
             return true;
         }
