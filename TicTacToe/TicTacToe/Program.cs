@@ -5,14 +5,23 @@
 /// </summary>
 void DrawField(int[] playersMove)
 {
-    Console.WriteLine("-------------");
-    Console.Write("| "); IsEmptyCell(playersMove[0]);Console.Write(" | "); IsEmptyCell(playersMove[1]);
-    Console.Write(" | "); IsEmptyCell(playersMove[2]); Console.WriteLine(" |");
-    Console.Write("| "); IsEmptyCell(playersMove[3]);Console.Write(" | "); IsEmptyCell(playersMove[4]);
-    Console.Write(" | "); IsEmptyCell(playersMove[5]); Console.WriteLine(" |");
-    Console.Write("| "); IsEmptyCell(playersMove[6]);Console.Write(" | "); IsEmptyCell(playersMove[7]);
-    Console.Write(" | "); IsEmptyCell(playersMove[8]); Console.WriteLine(" |");
-    Console.WriteLine("-------------\n");
+    const string fieldSide = "-------------";
+    const string fieldLeftRow = "| ";
+    const string fieldRightRow = " |";
+    const string fieldMiddleRow = " | ";
+    Console.WriteLine(fieldSide);
+    for (int i = 0; i < 9; i+=3)
+    {
+        
+        Console.Write(fieldLeftRow);
+        IsEmptyCell(playersMove[i]);
+        Console.Write(fieldMiddleRow);
+        IsEmptyCell(playersMove[i+1]);
+        Console.Write(fieldMiddleRow);
+        IsEmptyCell(playersMove[i+2]);
+        Console.WriteLine(fieldRightRow);
+    }
+    Console.WriteLine(fieldSide + "\n");
 }
 void IsEmptyCell(int cell)
 {
