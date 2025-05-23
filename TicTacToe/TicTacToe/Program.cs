@@ -121,16 +121,17 @@ bool IsWinner(int[] playersMoves)
 /// </summary>
 void StartGame(int[] playersMoves)
 {
-    
-    char turn = 'v';
-    while (turn != 'x' && turn != 'o' && turn != 'O' && turn != 'X')
+    const char turnX = 'X';
+    const char turnO = 'O';
+    char turn = 'V';
+    while (turn != turnO && turn != turnX)
     {
-        Console.Write("Кто ходит первым? [x/o] ");
+        Console.Write("Кто ходит первым? [X/O] ");
         turn = Console.ReadKey().KeyChar;
-        if (turn != 'x' && turn != 'o' && turn != 'X' && turn != 'O')
+        if (turn != turnX && turn != turnO)
         {
             Console.WriteLine();
-            Console.WriteLine("Ответьте корректно!");
+            Console.WriteLine("Введите X или O!");
         }
     }
     Console.WriteLine();
@@ -140,21 +141,21 @@ void StartGame(int[] playersMoves)
     while (winner == false)
     {
         DrawField(playersMoves);
-        Console.Write("Ход " + char.ToUpper(turn) + ": ");
+        Console.Write("Ход " + turn + ": ");
         int answer = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine();
         if (answer >= 1 && answer <= 9 && (playersMoves[answer - 1] != moveX) && (playersMoves[answer - 1] != moveO))
         {
-            if (turn == 'X' || turn == 'x')
+            if (turn == turnX)
             {
-                turn = 'O';
                 playersMoves[answer - 1] = moveX;
+                turn = turnO;
                 count++;
             }
-            else if (turn == 'O' || turn == 'o')
+            else if (turn == turnO)
             {
-                turn = 'X';
                 playersMoves[answer - 1] = moveO;
+                turn = turnX;
                 count++;
             }
             if (count >= 5)
@@ -164,18 +165,18 @@ void StartGame(int[] playersMoves)
         }
         else
         {
-            Console.WriteLine("Введите корректное значение (или не заполненное поле)!\n");
+            Console.WriteLine("Введите номер незаполненной ячейки от 1 до 9.\n");
         }
         
         if (winner)
         {
-            if (turn == 'X')
+            if (turn == turnX)
             {
-                turn = 'O';
+                turn = turnO;
             }
-            else if (turn == 'O')
+            else if (turn == turnO)
             {
-                turn = 'X';
+                turn = turnX;
             }
             Console.WriteLine($"Победитель {turn}!");
             break;
@@ -189,23 +190,23 @@ void StartGame(int[] playersMoves)
 }
 
 
-char newGame = 'y';
-while (newGame == 'y')
+char newGame = 'Y';
+while (newGame == 'Y')
 {
-    Console.Write("Хотите сыграть партию? [y/n] ");
+    Console.Write("Хотите сыграть партию? [Y/N] ");
     newGame = Console.ReadKey().KeyChar;
     Console.WriteLine();
-    if (newGame == 'n')
+    if (newGame == 'N')
         break;
-    if (newGame == 'y')
+    if (newGame == 'Y')
     {
         int[] playersMoves = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         StartGame(playersMoves);
     }
     else
     {
-        Console.WriteLine("Ответьте корректно!");
-        newGame = 'y';
+        Console.WriteLine("Ответьте Y - да или N - нет.");
+        newGame = 'Y';
     }
     
 }
