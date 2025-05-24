@@ -2,7 +2,8 @@
 
 internal class Program
 {
-    
+    const char turnX = 'X';
+    const char turnO = 'O';
     /// <summary>
     /// Нарисовать текущее игровое поле
     /// </summary>
@@ -35,7 +36,7 @@ internal class Program
             {
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.BackgroundColor = ConsoleColor.Blue;
-                Console.Write("X");
+                Console.Write(turnX);
                 Console.ResetColor();
             }
 
@@ -43,7 +44,7 @@ internal class Program
             {
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.BackgroundColor = ConsoleColor.Red;
-                Console.Write("O");
+                Console.Write(turnO);
                 Console.ResetColor();
             }
 
@@ -125,8 +126,6 @@ internal class Program
         /// </summary>
         void StartGame(int[] playersMoves)
         {
-            const char turnX = 'X';
-            const char turnO = 'O';
             char turn = 'V';
             while (turn != turnO && turn != turnX)
             {
@@ -195,18 +194,19 @@ internal class Program
 
     public static void Main(string[] args)
     {
-        
+        char yes = 'Y';
+        char no = 'N';
 
-        char newGame = 'Y';
-        while (newGame == 'Y')
+        char newGame = yes;
+        while (newGame == yes)
         {
             var program = new Program();
             Console.Write("Хотите сыграть партию? [Y/N] ");
             newGame = Console.ReadKey().KeyChar;
             Console.WriteLine();
-            if (newGame == 'N')
+            if (newGame == no)
                 break;
-            if (newGame == 'Y')
+            if (newGame == yes)
             {
                 int[] playersMoves = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
                 program.StartGame(playersMoves);
@@ -214,7 +214,7 @@ internal class Program
             else
             {
                 Console.WriteLine("Ответьте Y - да или N - нет.");
-                newGame = 'Y';
+                newGame = yes;
             }
     
         }
